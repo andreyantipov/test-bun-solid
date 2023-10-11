@@ -1,0 +1,55 @@
+{
+  "name": "virtual-dnd",
+  "version": "0.0.1",
+  "description": "Virtual Dnd dev tools to help developers build and create new extensions for anyone to use.",
+  "module": "index.ts",
+  "type": "module",
+  "keywords": [
+    "virtual",
+    "dnd",
+    "solid",
+    "typescript",
+    "dev",
+    "tools",
+    "vdd dev tools"
+  ],
+  "files": [
+    "build",
+    "index.ts",
+    "src/**/*"
+  ],
+  "scripts": {
+    "postinstall": "./patch-solid-runtime.sh",
+    "build": "bun bun ./src/index.ts --outfile=bundle.js",
+    "lint:js": "eslint --max-warnings=0 --ext .js,.ts,.tsx .",
+    "lint:ts": "tsc --noEmit",
+    "prepare": "husky install",
+    "test": "bun test --watch",
+    "test:ci": "bun test --coverage"
+  },
+  "devDependencies": {
+    "@happy-dom/global-registrator": "^12.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "bun-types": "latest",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-solid": "^0.13.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "solid-js": "^1.8.1",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "solid-js": "*",
+    "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": "eslint --cache --fix",
+    "*.{ts,tsx,js,cjs,md}": "prettier --write"
+  },
+  "dependencies": {
+    "patch-package": "^8.0.0"  
+  }
+}

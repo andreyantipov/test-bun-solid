@@ -1,0 +1,11 @@
+[install]
+
+registry = { url = "https://registry.npmjs.org", token = "$npm_token" }
+
+[install.scopes]
+
+"@virtual-dnd" = { token = "$npm_token", url = "https://registry.npmjs.org", acess = "public" }
+
+[test]
+
+preload = "./happydom.ts"
